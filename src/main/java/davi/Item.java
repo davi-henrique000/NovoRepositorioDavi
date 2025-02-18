@@ -1,6 +1,9 @@
 package davi;
 
-public class Item {
+import java.io.Serializable;
+import java.util.Objects;
+
+public class Item implements Serializable {
 
     private String nomeItem;
     private String codigoItem;
@@ -56,8 +59,18 @@ public class Item {
         this.raridade = raridade;
     }
 
-    public String toString (String nomeItem, String codigoItem, String descricaoItem, int quantidadeItem, Raridade raridade){
-        return ("}Item: " +getNomeItem()+ " \n }Código: " +getCodigoItem()+ " \n }Descrição: " +getDescricaoItem()+
-                " \n }Quantidade: " +getQuantidadeItem()+ " \n }Raridade: " +getRaridade());
+    public String toString (){
+        return ("}Item: " +getNomeItem()+ " \n }Código: " +getCodigoItem()+ " \n }Descrição: " +getDescricaoItem()+ " \n }Quantidade: " +getQuantidadeItem()+ " \n }Raridade: " +getRaridade());
+    }
+
+    public boolean equals (Object o){
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return Objects.equals(codigoItem, item.codigoItem);
+    }
+
+    public int hashCode(){
+        return Objects.hashCode(codigoItem);
     }
 }
