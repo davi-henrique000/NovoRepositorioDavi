@@ -60,7 +60,6 @@ public class SistemaInventarioPOO implements SistemaInventario{
 
     @Override
     public void salvarDados() throws IOException {
-
     }
 
     @Override
