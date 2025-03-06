@@ -29,29 +29,29 @@ public class GravadorDeItens {
             out.writeObject(itensArrayList);
         }
     }
-    public static void main(String [] args){
-        Item item1 = new Item("Espada Demoníaca", "123",
-                "Uma espada capaz de invocar a corrupção do inferno", 3, Raridade.EPICA);
-        Item item2 = new Item("Olho de Raphael", "456",
-                "Um item com formato de olho que permite obter informações de alvos", 1, Raridade.LENDARIA);
-
-        ArrayList<Item> itens = new ArrayList<>();
-        itens.add(item1);
-        itens.add(item2);
-
-        GravadorDeItens gravadorDeItens = new GravadorDeItens();
-        System.out.println("Recuperando Itens...");
-        try{
-            gravadorDeItens.gravaItens(itens);
-            Collection<Item> itensEncontrados = gravadorDeItens.recuperaItens();
-            System.out.println("Itens Encontrados!");
-            for(Item i: itensEncontrados){
-                System.out.println(i.toString());
-            }
-
-            gravadorDeItens.gravaItens(itens);
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-    }
+//public static void main(String [] args){
+//    Item item1 = new Item("Espada Demoníaca", "123",
+//            "Uma espada capaz de invocar a corrupção do inferno", 3, Raridade.EPICA);
+//    Item item2 = new Item("Olho de Raphael", "456",
+//            "Um item com formato de olho que permite obter informações de alvos", 1, Raridade.LENDARIA);
+//
+//    ArrayList<Item> itens = new ArrayList<>();
+//    itens.add(item1);
+//    itens.add(item2);
+//
+//    GravadorDeItens gravadorDeItens = new GravadorDeItens();
+//    System.out.println("Recuperando Itens...");
+//    try{
+//        gravadorDeItens.gravaItens(itens);
+//        Collection<Item> itensEncontrados = gravadorDeItens.recuperaItens();
+//        System.out.println("Itens Encontrados!");
+//        for(Item i: itensEncontrados){
+//            System.out.println(i.toString());
+//        }
+//
+//        gravadorDeItens.gravaItens(itens);
+//    } catch (IOException e){
+//        e.printStackTrace();
+//    }
+//}
 }

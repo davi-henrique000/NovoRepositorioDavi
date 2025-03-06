@@ -69,8 +69,4 @@ public class Item implements Serializable {
         Item item = (Item) o;
         return Objects.equals(codigoItem, item.codigoItem);
     }
-
-    public int hashCode(){
-        return Objects.hashCode(codigoItem);
-    }
 }
