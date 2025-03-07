@@ -61,11 +61,19 @@ public class SistemaInventarioPOO implements SistemaInventario{
     @Override
     public void salvarDados() throws IOException {
 
+        gravadorDeItens.gravaItens(itemInventario.values());
     }
 
     @Override
     public void recuperarDados() throws IOException {
-
+        try{
+            Collection<Item> itensRecuperados = gravadorDeItens.recuperaItens();
+            for(Item item: itensRecuperados){
+                itemInventario.put(item.getCodigoItem(), item);
+            }
+        } catch(IOException e){
+            throw new IOException ("Ops, aparentemente houveram problemas para recuperar os dados.", e);
+        }
     }
 }
 
