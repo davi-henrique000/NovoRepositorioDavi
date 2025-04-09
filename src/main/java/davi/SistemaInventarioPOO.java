@@ -36,12 +36,13 @@ public class SistemaInventarioPOO implements SistemaInventario{
     }
 
     public Item pesquisaItem (String nomeItem, String codigoItem) throws ItemInexistenteException{
-        Item i = this.itemInventario.get(codigoItem);
-        if(i != null && i.getNomeItem().equalsIgnoreCase(nomeItem)){
-            return i;
-        } else {
-            throw new ItemInexistenteException("Ops, parece que o item não está cadastrado no sistema.");
-        }
+
+        return itemInventario.entrySet().stream()
+                .filter(i -> i.getKey().equals(codigoItem) &&
+                        i.getValue().getNomeItem().equalsIgnoreCase(nomeItem))
+                .findFirst()
+                .orElseThrow(() -> new ItemInexistenteException("Ops, parece que o item não está cadastrado no sistema."))
+                .getValue();
     }
 
     public boolean removeItem (String nomeItem, String codigoItem, int quantidadeItem) throws ItemInexistenteException{
